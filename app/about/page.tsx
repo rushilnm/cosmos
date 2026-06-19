@@ -1,0 +1,9 @@
+import type { Metadata } from "next";
+import AboutPage from "@/components/pages/AboutPage";
+
+export const metadata: Metadata = {
+  title: "About COSMOS",
+  description: "What COSMOS is, our accuracy commitment, credits, and accessibility statement.",
+};
+
+export default function Page() { return <AboutPage />; }
