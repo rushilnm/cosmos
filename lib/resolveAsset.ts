@@ -23,7 +23,7 @@ async function getManifest(): Promise<Record<string, boolean>> {
 
 export async function resolveAsset(entry: AssetEntry): Promise<ResolvedAsset> {
   const manifest = await getManifest();
-  return manifest[entry.path]
+  return entry.path && manifest[entry.path]
     ? { status: "loaded", path: entry.path, entry }
     : { status: "placeholder", path: null, entry };
 }
@@ -32,7 +32,7 @@ export function resolveAssetSync(
   entry: AssetEntry,
   manifest: Record<string, boolean>
 ): ResolvedAsset {
-  return manifest[entry.path]
+  return entry.path && manifest[entry.path]
     ? { status: "loaded", path: entry.path, entry }
     : { status: "placeholder", path: null, entry };
 }

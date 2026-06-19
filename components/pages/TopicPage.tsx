@@ -40,8 +40,7 @@ export default function TopicPage({ topic }: Props) {
           <AssetPlaceholder
             id={topic.heroAssetId}
             label={`${topic.title} hero image`}
-            width={200}
-            height={200}
+            style={{ width: 200, height: 200 }}
           />
         </div>
       </div>

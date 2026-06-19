@@ -1,11 +1,11 @@
-import { type ReactNode, type CSSProperties } from "react";
+import { type ReactNode, type CSSProperties, type ElementType } from "react";
 
 interface GlassPanelProps {
   children: ReactNode;
   className?: string;
   style?: CSSProperties;
   glow?: string;
-  as?: keyof JSX.IntrinsicElements;
+  as?: ElementType;
   "aria-label"?: string;
   "aria-labelledby"?: string;
   role?: string;
@@ -25,9 +25,10 @@ export default function GlassPanel({
     ? { boxShadow: `0 0 40px ${glow}25, 0 0 1px ${glow}60, inset 0 1px 0 rgba(255,255,255,0.07)` }
     : { boxShadow: "0 8px 32px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.07)" };
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const Component = Tag as any;
   return (
-    // @ts-expect-error — polymorphic tag
-    <Tag
+    <Component
       className={`rounded-2xl border border-white/10 ${className}`}
       aria-label={ariaLabel}
       aria-labelledby={ariaLabelledBy}
@@ -41,6 +42,6 @@ export default function GlassPanel({
       }}
     >
       {children}
-    </Tag>
+    </Component>
   );
 }

@@ -67,7 +67,7 @@ export default function BodyPage({ body }: Props) {
         {/* Hero asset placeholder — floats right */}
         <div className="absolute right-6 top-8 opacity-30 pointer-events-none" aria-hidden>
           <AssetPlaceholder id={body.assetIds.hero ?? 0}
-            label={`${body.name} hero image`} width={200} height={200} />
+            label={`${body.name} hero image`} style={{ width: 200, height: 200 }} />
         </div>
       </div>
 
